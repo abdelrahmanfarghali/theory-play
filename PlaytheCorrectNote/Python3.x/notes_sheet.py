@@ -1,5 +1,10 @@
 import cv2
+import numpy
 import random
+notes = 1
+def write(note, position):
+	# to write a note on the available position
+	pass
 def noteFrequencies():
 	val, note = random_note('A5', 'E4', 5)
 	return val, note
@@ -18,3 +23,13 @@ def random_note(last, first, notes):
 	# select the closer ones to the number of notes 'notes' variable
 	# then generate the sheet music using the cv2 library by drawing it on line photo at
 	# the 'assets' folder
+	pass
+def draw_lines(length, flats, sharps):
+	# implement flats and sharps for the scale
+	sharp = numpy.array([[255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 255], [255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 255], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255], [255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255], [255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255], [255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],[255, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255], [255, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255]])
+	flat = numpy.array([[255, 255, 255, 0, 0, 255, 255], [255, 255, 255, 0, 0, 255, 255], [255, 255, 255, 0, 0, 255, 255], [255, 255, 255, 0, 0, 255, 255], [255, 255, 255, 0, 0, 255, 255], [255, 255, 255, 0, 0, 255, 255], [255, 255, 255, 0, 0, 255, 255], [255, 255, 255, 0, 0, 255, 255], [255, 0, 0, 0, 0, 255, 255], [0, 255, 255, 0, 0, 255, 255], [0, 255, 255, 0, 0, 255, 255], [255, 0, 255, 0, 0, 255, 255], [255, 255, 0, 0, 0, 255, 255]])
+	lines = numpy.array([[255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length,[0]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [0]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length, [255]*length,[0]*length, [255]*length, [255]*length, [255]*length, [255]*length,[255]*length, [255]*length, [255]*length, [255]*length, [0]*length, [255]*length, [255]*length, [255]*length, [255]*length,[255]*length, [255]*length, [255]*length, [255]*length, [0]*length, [255]*length, [255]*length, [255]*length, [255]*length,[255]*length, [255]*length, [255]*length, [255]*length])
+	cv2.imwrite('assets/sheet.jpg', lines)
+	cv2.imwrite('assets/flat.jpg', flat)
+	cv2.imwrite('assets/sharp.jpg', sharp)
+draw_lines(notes * 32, None, None)
