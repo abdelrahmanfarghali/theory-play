@@ -2,8 +2,9 @@ import cv2
 import numpy
 import random
 notes = 1
-Sheets = [{'E4' : 0.125, 'D4#' : 0.125, 'E4' : 0.125, 'D4#' : 0.125, 'E4' : 0.125, 'D4##' : 0.125, 'C4' : 0.125, 'A4' : 0.25, None : 0.25, 'C3' : 0.125, 'E3' : 0.125, 'A4' : 0.125, 'B4' : 0.25, None : 0.25, 'E3' : 0.125, 'G3#' : 0.125, 'B4' : 0.125 , 'C4' : 0.25, None : 0.25, 'E3' : 0.125, 'E4' : 0.125, 'D4#' : 0.125}
-
+Sheets = [{'E4' : 0.125, 'D4#' : 0.125, 'E4' : 0.125, 'D4#' : 0.125, 'E4' : 0.125, 'D4##' : 0.125, 'C4' : 0.125, 'A4' : 0.25, None : 0.25, 'C3' : 0.125, 'E3' : 0.125, 'A4' : 0.125, 'B4' : 0.25, None : 0.25, 'E3' : 0.125, 'G3#' : 0.125, 'B4' : 0.125 , 'C4' : 0.25, None : 0.25, 'E3' : 0.125, 'E4' : 0.125, 'D4#' : 0.125},
+{'D3' : 0.25, 'G3' : 0.5, 'B4' : 0.125, 'A4' : 0.125, 'G3' : 0.125, 'B4' : 0.5, 'A4' : 0.25},
+{None : 0.25, 'D4' : 0.25, 'C4' : 0.25, None : 0.25, 'D3' : 0.25, 'C3' : 0.25, None : 0.25, 'E3' : 0.125, 'F3' : 0.125, None : 0.25, 'C3' : 0.125, 'D3' : 0.125, 'E3' : 0.25, 'D4' : 0.5, None : 0.25, 'E3' : 0.25, 'D3' : 0.25, 'C3' : 0.25, 'E4' : 0.75}
 		]
 def write(note, position):
 	# to write a note on the available position
@@ -27,10 +28,11 @@ def random_note(last, first, notes):
 	# select the closer ones to the number of notes 'notes' variable
 	# then generate the sheet music using the cv2 library by drawing it on line photo at
 	# the 'assets' folder
-	for e in range(len(Sheets)):
-		if first in Sheets[e]:
-			for i in range(e, e + notes):
-				dictionary.update({Sheets.keys()[i] : Sheets.values()[i]})
+	while last is not in dictionary:
+		for e in range(len(Sheets)):
+			if first in Sheets[e]:
+				for i in range(e, e + notes):
+					dictionary.update({Sheets.keys()[i] : Sheets.values()[i]})
 	return dictionary
 def draw_lines(length, flats, sharps):
 	# implement flats and sharps for the scale
