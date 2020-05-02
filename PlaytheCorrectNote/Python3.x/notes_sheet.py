@@ -2,10 +2,19 @@ import cv2
 import numpy
 import random
 notes = 1
+note_sheet = dict
 Sheets = [{'E4' : 0.125, 'D4#' : 0.125, 'E4' : 0.125, 'D4#' : 0.125, 'E4' : 0.125, 'D4##' : 0.125, 'C4' : 0.125, 'A4' : 0.25, None : 0.25, 'C3' : 0.125, 'E3' : 0.125, 'A4' : 0.125, 'B4' : 0.25, None : 0.25, 'E3' : 0.125, 'G3#' : 0.125, 'B4' : 0.125 , 'C4' : 0.25, None : 0.25, 'E3' : 0.125, 'E4' : 0.125, 'D4#' : 0.125},
 {'D3' : 0.25, 'G3' : 0.5, 'B4' : 0.125, 'A4' : 0.125, 'G3' : 0.125, 'B4' : 0.5, 'A4' : 0.25},
 {None : 0.25, 'D4' : 0.25, 'C4' : 0.25, None : 0.25, 'D3' : 0.25, 'C3' : 0.25, None : 0.25, 'E3' : 0.125, 'F3' : 0.125, None : 0.25, 'C3' : 0.125, 'D3' : 0.125, 'E3' : 0.25, 'D4' : 0.5, None : 0.25, 'E3' : 0.25, 'D3' : 0.25, 'C3' : 0.25, 'E4' : 0.75}
 		]
+def draw_note(note_sheet):
+	cv2.imread('sheet.jpg')
+	# draw note per duration as shape of the note
+	# you do not have to group notes less than quarter
+	# draw notes on image read and implement new image
+	# this program is supposed to be an implementation for music sheet drawing
+	# implement a function that inserts note shape pixels into the poistion of quarter, eighth
+	# more or less space
 def write(note, position):
 	# to write a note on the available position
 	pass
